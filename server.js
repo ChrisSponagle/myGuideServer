@@ -44,7 +44,7 @@ app.post('/siteinfo', (req, res) => {
         var staticAudio = './static/audio/' + result.audio
         result.photo = staticPhoto
         result.audio = staticAudio
-        console.log("Site Info:", result)
+        console.log("Site Info:", result[RowDataPacket])
         res.send(result);
             
     });
