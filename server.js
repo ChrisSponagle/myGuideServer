@@ -41,11 +41,11 @@ app.post('/siteinfo', (req, res) => {
     pool.query(getSiteInfo, (error, result) => {
         if (error) throw error;
         var staticPhoto = "<Image src='./static/photos/" + result.photo + "' />"
-        var audio = './static/audio/' + result.audio
+        var staticAudio = './static/audio/' + result.audio
         result.photo = staticPhoto
-        result.audio = audio
+        result.audio = staticAudio
         console.log("Site Info:", result)
-        res.send(result, staticPhoto);
+        res.send(result);
             
     });
 });
