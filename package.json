@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:server": "nodemon --ignore sessions/ server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "child-process": "^1.0.2",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "node-forge": "^0.7.6",
+    "node-openssl-cert": "0.0.47",
+    "openssl": "^1.1.0",
+    "openssl-wrapper": "^0.3.4",
+    "shelljs": "^0.8.3",
+    "uuid": "^3.3.2"
+  }
+}
