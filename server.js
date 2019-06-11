@@ -18,7 +18,9 @@ const pool = mysql.createPool(config);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(serveStatic(path.join(__dirname, 'public')))
-
+app.get('/static'), (req, res) => {
+    res.send('/static/public/photos/gangnyeongjeon.png')
+}
 app.post('/siteinfo', (req, res) => {
 
     var id = req.body.id
