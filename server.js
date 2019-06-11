@@ -42,11 +42,6 @@ app.post('/siteinfo', (req, res) => {
 
     pool.query(getSiteInfo, (error, result) => {
         if (error) throw error;
-        // var staticPhoto = './static/photos/' + result[0].photo
-        // var staticAudio = './static/audio/' + result.audio
-        // result.photo = staticPhoto
-        // result.audio = staticAudio
-        // console.log("Site Info:", staticPhoto)
         res.send(result[0]);
             
     });
