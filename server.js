@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 var mysql = require('mysql');
 var path = require('path')
+var serveStatic = require('serve-static')
 const app = express();
 
 const config = {
@@ -16,7 +17,7 @@ const pool = mysql.createPool(config);
 // Added & configured middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(express.static(__dirname + 'public')); //Serves resources from public folder
+app.use("/public", express.static(__dirname + '/public'));
 
 app.post('/siteinfo', (req, res) => {
 
