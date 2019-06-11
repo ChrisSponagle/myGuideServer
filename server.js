@@ -17,8 +17,7 @@ const pool = mysql.createPool(config);
 // Added & configured middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use('/static', express.static(path.join(__dirname, 'public')))
-// app.use(serveStatic(path.join(__dirname, 'public')))
+app.use(serveStatic(path.join(__dirname, 'public')))
 
 app.post('/siteinfo', (req, res) => {
 
