@@ -15,7 +15,8 @@ const pool = mysql.createPool(config);
 // Added & configured middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use('/static', express.static('public'))  // Route for incoming siteinfo post
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
 
 app.post('/siteinfo', (req, res) => {
 
