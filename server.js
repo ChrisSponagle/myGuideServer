@@ -21,30 +21,35 @@ app.use("/public", express.static(__dirname + '/public'));
 
 app.post('/siteinfo', (req, res) => {
 
-    var id = req.body.id
-    var lang = req.body.lang
+    try {
+        var id = req.body.id
+        var lang = req.body.lang
 
-    //Set Language
-    if (lang === 'english') {
-        var langTable = 'english_table'
-    }
-    else if (lang === 'french') {
-        var langTable = 'french_table'
-    }
-    else if (lang === 'korean') {
-        var langTable = 'korean_table'
-    }
-    else if (lang === 'chinese') {
-        var langTable = 'chinese_table'
-    }
+        //Set Language
+        if (lang === 'english') {
+            var langTable = 'english_table'
+        }
+        else if (lang === 'french') {
+            var langTable = 'french_table'
+        }
+        else if (lang === 'korean') {
+            var langTable = 'korean_table'
+        }
+        else if (lang === 'chinese') {
+            var langTable = 'chinese_table'
+        }
 
-    var getSiteInfo = "SELECT * FROM " + langTable + " WHERE id = " + id
+        var getSiteInfo = "SELECT * FROM " + langTable + " WHERE id = " + id
 
-    pool.query(getSiteInfo, (error, result) => {
-        if (error) throw error;
-        res.send(result[0]);
-            
-    });
+        pool.query(getSiteInfo, (error, result) => {
+            if (error) throw error;
+            res.send(result[0]);
+                
+        });
+    }
+    catch(e) {
+        console.log(e)
+    }
 });
 
   // Route for incoming sitemap post
