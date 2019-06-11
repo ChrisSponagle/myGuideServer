@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 var mysql = require('mysql');
 var path = require('path')
-var serveStatic = require('serve-static')
 const app = express();
 
 const config = {
@@ -17,10 +16,8 @@ const pool = mysql.createPool(config);
 // Added & configured middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(serveStatic(path.join(__dirname, 'public')))
-app.get('/static'), (req, res) => {
-    res.send('/static/public/photos/gangnyeongjeon.png')
-}
+app.use(express.static(__dirname + 'public')); //Serves resources from public folder
+
 app.post('/siteinfo', (req, res) => {
 
     var id = req.body.id
