@@ -15,7 +15,7 @@ const pool = mysql.createPool(config);
 // Added & configured middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
+app.use(express.static('public'))
   // Route for incoming siteinfo post
 app.post('/siteinfo', (req, res) => {
 
@@ -44,7 +44,7 @@ app.post('/siteinfo', (req, res) => {
         // var staticAudio = './static/audio/' + result.audio
         // result.photo = staticPhoto
         // result.audio = staticAudio
-        console.log("Site Info:", result[0].photo)
+        console.log("Site Info:", staticPhoto)
         res.send(staticPhoto);
             
     });
