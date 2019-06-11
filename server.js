@@ -44,8 +44,8 @@ app.post('/siteinfo', (req, res) => {
         // var staticAudio = './static/audio/' + result.audio
         // result.photo = staticPhoto
         // result.audio = staticAudio
-        console.log("Site Info:", result)
-        res.send('./static/photos/' + staticPhoto);
+        console.log("Site Info:", result.photo)
+        res.send(result);
             
     });
 });
