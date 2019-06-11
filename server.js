@@ -40,12 +40,12 @@ app.post('/siteinfo', (req, res) => {
 
     pool.query(getSiteInfo, (error, result) => {
         if (error) throw error;
-        var staticPhoto = './static/photos/' + result.photo
+        var staticPhoto = './static/photos/' + result[0].photo
         // var staticAudio = './static/audio/' + result.audio
         // result.photo = staticPhoto
         // result.audio = staticAudio
         console.log("Site Info:", result[0].photo)
-        res.send(result);
+        res.send(staticPhoto);
             
     });
 });
